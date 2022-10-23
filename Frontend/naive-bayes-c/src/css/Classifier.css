@@ -1,11 +1,25 @@
 html,
 body {
-    height: 100vh;
     margin: 0;
     background: #707070;
 }
 
-img {
-    max-width: 100%;
+.flex-container {
+    display: flex;
+    flex-direction:row;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+    width:auto;
+  }
+  .btn-2 {
+    position:relative;
+    background: #252525 none repeat scroll 0 0;
+    border: medium none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 17px;
+    height:auto;
+    width: 100px;;
 }
-

@@ -8,8 +8,8 @@ export const FormComponent = () => {
   };
 
   return (
-    <form >
-            <div className="type_link">
+    <form className="form-first">
+            <div className="flex-container">
                 <div className="input_link_write ">
                     <input
                         type="text"
@@ -19,12 +19,12 @@ export const FormComponent = () => {
                         onChange={ onChange }
                     />
                 </div>
-                <div className="text-center ">
-                    <button className="link_send_btn " type="submit">
+                <div  >
+                    <button className="btn-1" type="submit">
                         Send
                     </button>
                 </div>
             </div>
-        </form>
+    </form>
   );
 };
