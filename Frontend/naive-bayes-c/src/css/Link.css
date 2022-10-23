@@ -1,18 +1,12 @@
-html,
-body {
-    margin: 0;
-    background: #707070;
-}
-
-
 .flex-container {
+
     display: flex;
     flex-direction:row;
-    background-color: transparent;
+    background-color: white;
     justify-content: center;
     align-items: center;
-    margin-top: 10%;
     width:auto;
+    margin-top: 5%;
   }
 
 .form-first{

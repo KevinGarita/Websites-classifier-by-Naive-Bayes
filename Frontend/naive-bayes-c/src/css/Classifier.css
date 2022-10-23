@@ -1,18 +1,17 @@
-html,
-body {
-    margin: 0;
-    background: #707070;
-}
 
-.flex-container {
+.flex-container-2 {
     display: flex;
-    flex-direction:row;
-    background-color: transparent;
+    flex-direction:column;
+    background-color: white;
     justify-content: center;
     align-items: center;
-    margin-top: 10%;
     width:auto;
   }
+.colum-chart{
+  width: 600px;
+  height: 300px;
+
+}
   .btn-2 {
     position:relative;
     background: #252525 none repeat scroll 0 0;
