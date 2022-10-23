@@ -8,14 +8,14 @@ import {
   
   
 import { ClassifierPage } from "../pages/ClassifierPage";
-import { LinksClassifierPage } from "../pages/LinksClassifierPage";
+import { LinkClassifierPage } from "../pages/LinkClassifierPage";
 
 export const AppRouter = () => {
   return (
     <Router>
       <div>
         <Switch>
-          <Route exact path="/LinkClassifier" component={ LinksClassifierPage } />
+          <Route exact path="/LinkClassifier" component={ LinkClassifierPage } />
           <Route exact path="/" component={ ClassifierPage } />
 
           <Redirect to="/"/>

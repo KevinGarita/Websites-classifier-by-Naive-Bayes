@@ -1,0 +1,11 @@
+html,
+body {
+    height: 100vh;
+    margin: 0;
+    background: #707070;
+}
+
+img {
+    max-width: 100%;
+}
+
