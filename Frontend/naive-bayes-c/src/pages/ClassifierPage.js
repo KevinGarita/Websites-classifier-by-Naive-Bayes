@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { ColumnCharts } from "../components/ColumnCharts";
+import { PieChart } from "../components/PieChart";
 import "../css/Classifier.css";
 
 export const ClassifierPage = () => {
@@ -15,6 +16,9 @@ export const ClassifierPage = () => {
       <div className="flex-container">
         <div className="colum-chart">
           <ColumnCharts />
+        </div>
+        <div className="pie-chart">
+          <PieChart />
         </div>
       </div>
     </div>

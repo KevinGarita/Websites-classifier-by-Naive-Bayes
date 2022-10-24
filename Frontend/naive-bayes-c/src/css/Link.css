@@ -1,19 +1,16 @@
 .flex-container {
-
     display: flex;
     flex-direction:row;
     background-color: white;
     justify-content: center;
     align-items: center;
     width:auto;
-    margin-top: 5%;
+    margin-top: 10px;
   }
 
 .form-first{
-
 height:auto;
 width:auto;
-
 }
   
 .input_link_write input {
