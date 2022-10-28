@@ -1,7 +1,6 @@
 import React from "react";
-import { Bar } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";// eslint-disable-next-line
 import Chart from "chart.js/auto";
-
 export const ColumnCharts = () => {
   const data = {
     labels: ["Uno", "Dos", "Tres"],
@@ -10,13 +9,11 @@ export const ColumnCharts = () => {
     datasets: [
       {
         label: "Links Totales",
-        backgroundColor: ["#f38b4a"],
+        backgroundColor: ["#56d798"],
         borderColor: "black",
-        borderWidth: "3",
+        borderWidth: "2",
         Color: "blue",
-        borderwidth: 1,
-        hoverBackgroundColor: ["#56d798", "#ff8397", "#6970d5"],
-        hoverBorderColor: "#000",
+        hoverBackgroundColor: ["#E1D625"],
         data: [100, 300, 200],
       },
     ],
