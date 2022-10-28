@@ -14,11 +14,11 @@ export const ClassifierPage = () => {
         </div>
       </div>
       <div className="flex-container">
-        <div className="colum-chart">
-          <ColumnCharts />
-        </div>
         <div className="pie-chart">
           <PieChart />
+        </div>
+        <div className="colum-chart">
+          <ColumnCharts />
         </div>
       </div>
     </div>
