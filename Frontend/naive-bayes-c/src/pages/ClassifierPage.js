@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { ColumnCharts } from "../components/ColumnCharts";
+import { PaginatedTable } from "../components/PaginatedTable";
 import { PieChart } from "../components/PieChart";
 import "../css/Classifier.css";
 
@@ -20,6 +21,9 @@ export const ClassifierPage = () => {
         <div className="colum-chart">
           <ColumnCharts />
         </div>
+      </div>
+      <div className="table-div">
+        <PaginatedTable />
       </div>
     </div>
   );
