@@ -13,6 +13,7 @@ def naiveBayes(totalW, totaltype1W, totaltype2W, totaltype3W, type1W, type2W, ty
     totalProb2 = previousProb2*probType2
     totalProb3 = previousProb3*probType3
 
-    return [totalProb1,totalProb2,totalProb3]
+    return [totalProb1, totalProb2, totalProb3]
 
-print(naiveBayes(200,50,40,110,50,40,110))
+
+print(naiveBayes(200, 50, 40, 110, 50, 40, 110))
