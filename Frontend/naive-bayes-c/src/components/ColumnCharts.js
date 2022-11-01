@@ -1,11 +1,13 @@
-import React from "react"; // eslint-disable-next-line
+import React, { useState } from "react"; // eslint-disable-next-line
 import Chart, { BarElement } from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
+import { PaginatedTable } from "./PaginatedTable";
 
-export const ColumnCharts = () => {
+export const ColumnCharts = ({ datalinks }) => {
+  const [showData, setshowData] = useState(false);
 
   const data = {
-    labels: ["Uno", "Dos", "Tres"],
+    labels: datalinks.labels,
     backgroundColor: "#f38b4a",
     borderColor: "#fffff",
     datasets: [
@@ -16,7 +18,7 @@ export const ColumnCharts = () => {
         borderWidth: "2",
         Color: "blue",
         hoverBackgroundColor: ["#E1D625"],
-        data: [100, 300, 200],
+        data: datalinks.links,
       },
     ],
   };
@@ -24,19 +26,23 @@ export const ColumnCharts = () => {
   const opciones = {
     maintainAspectRatio: false,
     responsive: true,
-    onClick: function(evt, element) {
-      if(element.length > 0) {
-          console.log(element,element[0].index)
-          // you can also get dataset of your selected element
-          console.log(data.datasets[element[0].datasetIndex])
-      }}
+    onClick: function (evt, element) {
+      if (element.length > 0) {
+        console.log(element[0].index);
+        setshowData(true);
+        console.log(showData);
+      }
+    },
   };
 
   return (
-    <Bar
-      data={data}
-      options={opciones}
-    
-    />
+    <>
+      <Bar data={data} options={opciones} />
+      {showData && (
+        <div className="table-div">
+          <PaginatedTable />
+        </div>
+      )}
+    </>
   );
 };
