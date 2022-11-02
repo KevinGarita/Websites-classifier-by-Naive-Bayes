@@ -18,8 +18,13 @@ def getListLinks():
         'listAnalyzedPages': listAnalyzedPages,
         'listConnectionFail': listConnectionFail
     })
-    print(response)
     return response
+
+@app.route('/link', methods=['POST'])
+def processLink():
+    print(request.json)
+    pageAnalysis = process(request.json['link'])
+    return {'message': 'received', 'infoLink': pageAnalysis}
 
 
 if __name__ == '__main__':
