@@ -4,7 +4,7 @@ This project consists of using web scrapping and multiprocessing to classify web
 ## App Features
 
 ![image](https://user-images.githubusercontent.com/61397177/199617663-6dbb2f5e-558c-47f7-b6c7-7caa7f83337e.png)
-![image](https://user-images.githubusercontent.com/61397177/199617677-f8c62672-6190-4e8d-84f6-ef26390a3b13.png)
+![image](https://user-images.githubusercontent.com/61397177/199617882-9c485564-636d-47a9-b5ab-b364e8773f61.png)
 
 
 ### Pages
