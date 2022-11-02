@@ -2,25 +2,28 @@ import { NavLink } from "react-router-dom";
 import { ColumnCharts } from "../components/ColumnCharts";
 import { PieChart } from "../components/PieChart";
 import "../css/Classifier.css";
+import  dataWeb from "../helpers/Datos_para_web.json";
 
 export const ClassifierPage = () => {
 
-  const labels = ["One", "Two", "Three"]
-  const links  = [100, 300, 200]
-  const dataTable = [
-    { name: "Costa Rica", c:1 },
-    { name: "Nicaragua",c:2 },
-    { name: "Panama",c:3 },
-    { name: "Bolivia",c:2 },
-    { name: "USA" ,c:1},
-    { name: "Mexico",c:2 },
-  ];
-  const datalinks = {labels,links,dataTable}
+  const labels = ["Unrated", "News", "Entertainment","Commercial"]
+
+  const totalUnrated = dataWeb.listAnalyzedPages.filter(element =>element.classification==="Unrated").length
+  const totalNews  = dataWeb.listAnalyzedPages.filter(element =>element.classification==="News").length
+  const totalEntertaiment  = dataWeb.listAnalyzedPages.filter(element =>element.classification==="Entertainment").length
+  const totalCommercial = dataWeb.listAnalyzedPages.filter(element =>element.classification==="Commercial").length
+
+  const links  = [totalUnrated, totalNews, totalEntertaiment,totalCommercial]
 
 
 
-  const labelsPie = ["Une", "Dou"]
-  const linksPie  = [100, 300]
+  
+  const datalinks = {labels,links,dataWeb}
+
+
+  const labelsPie = ["Links Consultados","Links Caídos"]
+  
+  const linksPie  = [dataWeb.listAnalyzedPages.length, dataWeb.listConnectionFail.length]
 
   const datalinksPie = {labelsPie,linksPie}
 
@@ -38,7 +41,7 @@ export const ClassifierPage = () => {
           <PieChart datalinksPie={datalinksPie}/>
         </div>
         <div className="colum-chart">
-          <ColumnCharts datalinks={datalinks} />
+          <ColumnCharts datalinks={datalinks} show="link"  />
         </div>
       </div>
     </div>
