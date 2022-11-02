@@ -1,9 +1,17 @@
 from bs4 import BeautifulSoup
 from threading import Thread
-from wordsLists import *
+from words_lists import *
 import pandas as pd
 import requests
 import queue
+
+def link_connection(link):
+    try:
+        page = requests.get(link, timeout=15)
+        return page
+    except:
+        print("connection fail")
+        return False
 
 def split_list(list):
     half = len(list)//2
@@ -14,8 +22,7 @@ def totalWords(textParse):
     totalWords = len(textParse.split())
     return totalWords
 
-def scrapingPage(link):
-    page = requests.get(link)
+def scrapingPage(page):
     htmlSoup = BeautifulSoup(page.text, 'html.parser')
     tagList = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'pre', 'span', 'title', 'b', 'i', 'strong', 'em', 'cite']
     return htmlSoup, tagList
@@ -29,8 +36,8 @@ def scrapingTags(queue: queue.Queue, htmlSoup, tagList):
     textParse = textParse.lower()  #lo convierte todo en minusculas
     queue.put_nowait(textParse)
 
-def multithreadingScraping(link):
-    htmlSoup, tagList = scrapingPage(link)
+def multithreadingScraping(page):
+    htmlSoup, tagList = scrapingPage(page)
     tagList01, tagList02 = split_list(tagList)
     tagList1, tagList2 = split_list(tagList01)
     tagList3, tagList4 = split_list(tagList02)
@@ -106,6 +113,5 @@ def multithreadingSearchWords(textParse):
     #Obtener los resultados de las funciones
     results = queq.get_nowait() + queq.get_nowait() + queq.get_nowait()
 
-    print(results)
     return results
 
