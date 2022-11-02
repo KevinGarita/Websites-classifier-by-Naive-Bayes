@@ -14,6 +14,8 @@ print(links[0])
 def process(link):
     textParse = multithreadingScraping(link)
     multithreadingSearchWords(textParse)
+    textWords = totalWords(textParse)
+    print(textWords)
     return
 
 process(links[0])

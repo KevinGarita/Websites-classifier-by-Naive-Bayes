@@ -9,10 +9,15 @@ def split_list(list):
     half = len(list)//2
     return list[:half], list[half:]
 
+#Conteo total de las palabras
+def totalWords(textParse): 
+    totalWords = len(textParse.split())
+    return totalWords
+
 def scrapingPage(link):
     page = requests.get(link)
     htmlSoup = BeautifulSoup(page.text, 'html.parser')
-    tagList = ['h1', 'h2', 'h3', 'h4']
+    tagList = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'pre', 'span', 'title', 'b', 'i', 'strong', 'em', 'cite']
     return htmlSoup, tagList
 
 def scrapingTags(queue: queue.Queue, htmlSoup, tagList):
@@ -26,7 +31,9 @@ def scrapingTags(queue: queue.Queue, htmlSoup, tagList):
 
 def multithreadingScraping(link):
     htmlSoup, tagList = scrapingPage(link)
-    tagList1, tagList2 = split_list(tagList)
+    tagList01, tagList02 = split_list(tagList)
+    tagList1, tagList2 = split_list(tagList01)
+    tagList3, tagList4 = split_list(tagList02)
     queq = queue.Queue()
 
     """
@@ -37,17 +44,23 @@ def multithreadingScraping(link):
     #Configuracion de los hilos
     thread1 = Thread(target=scrapingTags, args=(queq, htmlSoup, tagList1))
     thread2 = Thread(target=scrapingTags, args=(queq, htmlSoup, tagList2))
+    thread3 = Thread(target=scrapingTags, args=(queq, htmlSoup, tagList3))
+    thread4 = Thread(target=scrapingTags, args=(queq, htmlSoup, tagList4))
 
     #Inicializacion de los hilos.
     thread1.start()
     thread2.start()
+    thread3.start()
+    thread4.start()
 
     #Esperar a que los hilos finalicen sus tareas
     thread1.join()
     thread2.join()
+    thread3.join()
+    thread4.join()
     
     #Obtener los resultados de las funciones
-    textParse = queq.get_nowait() + " " + queq.get_nowait()
+    textParse = queq.get_nowait() + " " + queq.get_nowait() + " " + queq.get_nowait() + " " + queq.get_nowait()
 
     return textParse
     
@@ -95,3 +108,4 @@ def multithreadingSearchWords(textParse):
 
     print(results)
     return results
+
