@@ -5,6 +5,7 @@ import { PaginatedTable } from "./PaginatedTable";
 
 export const ColumnCharts = ({ datalinks }) => {
   const [showData, setshowData] = useState(false);
+  const  [category, setCategory] = useState(0)
 
   const data = {
     labels: datalinks.labels,
@@ -30,7 +31,7 @@ export const ColumnCharts = ({ datalinks }) => {
       if (element.length > 0) {
         console.log(element[0].index);
         setshowData(true);
-        console.log(showData);
+        setCategory(element[0].index+1)
       }
     },
   };
@@ -40,7 +41,7 @@ export const ColumnCharts = ({ datalinks }) => {
       <Bar data={data} options={opciones} />
       {showData && (
         <div className="table-div">
-          <PaginatedTable />
+          <PaginatedTable dataTable={[datalinks.dataTable,category]}/>
         </div>
       )}
     </>

@@ -2,7 +2,6 @@ import React from "react";
 import { ColumnCharts } from "../components/ColumnCharts";
 
 import { FormComponent } from "../components/FormComponent";
-import { PaginatedTable } from "../components/PaginatedTable";
 import "../css/Link.css";
 
 export const LinkClassifierPage = () => {
@@ -11,8 +10,17 @@ export const LinkClassifierPage = () => {
   const labels = ["1", "2", "3"]
   const links  = [100, 300, 200]
 
-  const datalinks = {labels,links}
+  const dataTable = [
+    { name: "Costa Rica", c:1 },
+    { name: "Nicaragua",c:2 },
+    { name: "Panama",c:3 },
+    { name: "Bolivia",c:2 },
+    { name: "USA" ,c:1},
+    { name: "Mexico",c:2 },
+  ];
 
+  
+  const datalinks = {labels,links,dataTable}
   return (
     <div className="flex-container-2">
 
@@ -21,11 +29,7 @@ export const LinkClassifierPage = () => {
       <div className="colum-chart">
           <ColumnCharts datalinks={datalinks} />
       </div>
-      
-      <div className="table-div">
-        <PaginatedTable />
-      </div>
-
+    
     </div>
   );
 };
