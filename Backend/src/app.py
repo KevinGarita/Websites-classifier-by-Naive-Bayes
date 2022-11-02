@@ -1,6 +1,9 @@
+# Create by Kevin Garita.
 from flask import Flask
 from flask_cors import CORS
 import os
+
+from mainProcess import *
 
 ##Initialize server
 app = Flask(__name__, static_url_path='')
@@ -9,3 +12,5 @@ port = int(os.getenv('PORT', 8080))
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=port, debug=True)
+
+
