@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-export const FormComponent = () => {
+export const FormComponent = ({onSearchLink}) => {
+  
   const [link, setLink] = useState("");
 
   const onChange = ({ target }) => {
@@ -8,7 +9,7 @@ export const FormComponent = () => {
   };
 
   return (
-    <form className="form-first">
+    <div className="form-first">
             <div className="flex-container">
                 <div className="input_link_write ">
                     <input
@@ -20,11 +21,11 @@ export const FormComponent = () => {
                     />
                 </div>
                 <div  >
-                    <button className="btn-1" type="submit">
+                    <button className="btn-1" onClick={ ()=> onSearchLink(link) }>
                         Send
                     </button>
                 </div>
             </div>
-    </form>
+    </div>
   );
 };

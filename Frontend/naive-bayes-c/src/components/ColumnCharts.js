@@ -1,11 +1,12 @@
-import React, { useState } from "react"; // eslint-disable-next-line
+import React, { useEffect, useState } from "react"; // eslint-disable-next-line
 import Chart, { BarElement } from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
 import { PaginatedTable } from "./PaginatedTable";
 
-export const ColumnCharts = ({ datalinks }) => {
+export const ColumnCharts = ({ datalinks, show, link }) => {
   const [showData, setshowData] = useState(false);
-  const  [category, setCategory] = useState(0)
+  const [category, setCategory] = useState(0);
+  const [tableData, setTableData] = useState([]);
 
   const data = {
     labels: datalinks.labels,
@@ -29,19 +30,38 @@ export const ColumnCharts = ({ datalinks }) => {
     responsive: true,
     onClick: function (evt, element) {
       if (element.length > 0) {
-        console.log(element[0].index);
         setshowData(true);
-        setCategory(element[0].index+1)
+        setCategory(datalinks.labels[element[0].index]);
       }
     },
   };
+
+  useEffect(() => {
+    if (show === "link") {
+      const newData = datalinks.dataWeb.listAnalyzedPages.filter(
+        (element) => element.classification === category
+      );
+      setTableData(newData);
+    } else {
+      const linkData = datalinks.dataWeb.listAnalyzedPages.find(
+        (element) => element.link === link
+      );
+      if (linkData) {
+        const newData = linkData.details.filter(
+          (element) => element.category === category
+        );
+
+        setTableData(newData);
+      }
+    }
+  }, [category]); // eslint-disable-line
 
   return (
     <>
       <Bar data={data} options={opciones} />
       {showData && (
         <div className="table-div">
-          <PaginatedTable dataTable={[datalinks.dataTable,category]}/>
+          <PaginatedTable dataTable={[tableData, category]} show={show}/>
         </div>
       )}
     </>

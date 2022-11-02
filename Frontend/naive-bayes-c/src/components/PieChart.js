@@ -19,13 +19,7 @@ export const PieChart = ({datalinksPie}) => {
   };
   const opciones = {
     maintainAspectRatio: false,
-    responsive: true,
-    onClick: function(evt, element) {
-      if(element.length > 0) {
-          console.log(element[0].index)
-          // you can also get dataset of your selected element
-          console.log(data.datasets[element[0].datasetIndex])
-      }}
+    responsive: true
   };
   return <Pie data={data} options={opciones} />;
 }
