@@ -2,6 +2,11 @@
 This project consists of using web scrapping and multiprocessing to classify web pages. The classification method is the naive Bayes method, in addition, react is used to display the data obtained.
 
 ## App Features
+
+![image](https://user-images.githubusercontent.com/61397177/199617663-6dbb2f5e-558c-47f7-b6c7-7caa7f83337e.png)
+![image](https://user-images.githubusercontent.com/61397177/199617677-f8c62672-6190-4e8d-84f6-ef26390a3b13.png)
+
+
 ### Pages
 
 Frontend/naive-bayes-c/src/pages/
