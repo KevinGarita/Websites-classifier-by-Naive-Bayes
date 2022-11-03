@@ -7,7 +7,7 @@ import queue
 
 def link_connection(link):
     try:
-        page = requests.get(link, timeout=15)
+        page = requests.get(link, timeout=8)
         return page
     except:
         print("connection fail")

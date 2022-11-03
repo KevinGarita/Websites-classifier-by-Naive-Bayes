@@ -2,7 +2,6 @@
 from flask import Flask, request, jsonify, Response
 from flask_cors import CORS
 import os
-
 from main_process import *
 
 ##Initialize server
@@ -13,6 +12,8 @@ port = int(os.getenv('PORT', 8080))
 
 @app.route('/list-links', methods=['GET'])
 def getListLinks():
+    
+    main(100)   #Trabaja sobre los links del CSV, como parametro se envia la cantidad que se quieran trabajar
 
     response = jsonify({
         'listAnalyzedPages': listAnalyzedPages,
