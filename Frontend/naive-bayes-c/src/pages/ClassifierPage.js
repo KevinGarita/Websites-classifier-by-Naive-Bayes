@@ -15,9 +15,6 @@ export const ClassifierPage = () => {
 
   const links  = [totalUnrated, totalNews, totalEntertaiment,totalCommercial]
  
-
-
-  
   const datalinks = {labels,links,dataWeb}
 
 
