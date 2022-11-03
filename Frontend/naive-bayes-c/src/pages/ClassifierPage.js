@@ -14,7 +14,7 @@ export const ClassifierPage = () => {
   const totalCommercial = dataWeb.listAnalyzedPages.filter(element =>element.classification==="Commercial").length
 
   const links  = [totalUnrated, totalNews, totalEntertaiment,totalCommercial]
-
+  //A
 
 
   
