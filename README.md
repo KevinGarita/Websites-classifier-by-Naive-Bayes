@@ -31,7 +31,7 @@ Frontend/naive-bayes-c/src/config/
 
 ### Getting Started
 
-1. cd into the FrontEnd proyect directory
+1. cd into the FrontEnd/naive-bayes-c proyect directory
 2. npm install 
 3. npm start
 
