@@ -50,7 +50,7 @@ export const LinkClassifierPage = () => {
 
 
   // const loadDataWeb = async () => {
-  //   const response = await fetch("http://localhost:8080/");
+  //   const response = await fetch("http://192.168.1.117:8080/list-links");
   //   const data = await response.json();
   //   setdataWeb(data)
   // };
