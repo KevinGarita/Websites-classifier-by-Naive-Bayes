@@ -1,5 +1,5 @@
 # Websites Classifier by Naive Bayes
-This project consists of using web scrapping and multiprocessing to classify web pages. The classification method is the naive Bayes method, in addition, react is used to display the data obtained.
+The current project consists of the creation of a Bayesian classifier, what will be the Bayesian method, web scraping and multiprocessing to classify a list of web page links in 3 different categories. This project was carried out in Python where all the data was processed, web scraping and multiprocessing were carried out. To show the results obtained, graphs and tables created with the react library will be used.
 
 ## App Features - Frontend
 
