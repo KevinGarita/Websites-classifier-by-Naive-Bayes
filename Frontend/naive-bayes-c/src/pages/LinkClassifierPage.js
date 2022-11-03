@@ -3,21 +3,17 @@ import { ColumnCharts } from "../components/ColumnCharts";
 
 import { FormComponent } from "../components/FormComponent";
 import "../css/Link.css";
-import  dataWeb from "../helpers/Datos_para_web.json";
 
 
 
 export const LinkClassifierPage = () => {
 
-  // const [dataWeb, setdataWeb] = useState({})
+  const [dataWeb, setdataWeb] = useState({})
 
   const [unratedCount, setunratedCount] = useState(0)
   const [newsCount, setnewsCount] = useState(0)
   const [EntertainmentCount, setEntertainmentCount] = useState(0)
   const [CommercialCount, setCommercialCount] = useState(0)
-  
-
-  console.log(dataWeb)
   
   const [link, setLink] = useState("");
 
@@ -29,8 +25,10 @@ export const LinkClassifierPage = () => {
   const links  = [unratedCount,newsCount,EntertainmentCount,CommercialCount]
 
   useEffect(() => {
-    const linkData =dataWeb.listAnalyzedPages.find(element =>element.link===link)
+    const linkData =dataWeb.infoLink
     
+    console.log(linkData)
+
     if (linkData) {
       const totalUnrated = linkData.details.filter(element =>element.category==="Unrated").reduce((prevValue,currentValue)=>prevValue+currentValue.count,0)
       const totalNews  = linkData.details.filter(element =>element.category==="News").reduce((prevValue,currentValue)=>prevValue+currentValue.count,0)
@@ -43,21 +41,33 @@ export const LinkClassifierPage = () => {
       setCommercialCount(totalCommercial)
     }
     
-  }, [link])
+  }, [dataWeb])
   
+
+  const loadDataWeb = async () => {
+
+    const response = await fetch("http://192.168.1.117:8080/link", {
+      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+      headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: JSON.stringify({"link": link}) // body data type must match "Content-Type" 
+    });
+    const dataLink = await response.json();
+
+    console.log(dataLink)
+
+    setdataWeb(dataLink)
+  };
+
+  useEffect(() => {
+    loadDataWeb();
+  }, [link]);
+
 
   const datalinks = {labels,links,dataWeb}
 
-
-  // const loadDataWeb = async () => {
-  //   const response = await fetch("http://192.168.1.117:8080/list-links");
-  //   const data = await response.json();
-  //   setdataWeb(data)
-  // };
-
-  // useEffect(() => {
-  //   loadDataWeb();
-  // }, []);
 
   return (
     <div className="flex-container-2">

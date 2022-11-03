@@ -38,7 +38,7 @@ def listLinks(links):
             listAnalyzedPages.append(pageAnalysis)
 
 
-datos = pd.read_csv('assets/Links.csv', encoding = "ISO-8859-1")
+datos = pd.read_csv('../assets/Links.csv', encoding = "ISO-8859-1")
 links = datos['google1_correct_website']
 listAnalyzedPages = []
 listConnectionFail = []

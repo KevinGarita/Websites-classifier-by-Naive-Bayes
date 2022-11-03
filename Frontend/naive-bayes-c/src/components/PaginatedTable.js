@@ -12,7 +12,7 @@ export const PaginatedTable = ({dataTable, show}) => {
         pageSize={3}
       >
         <Column header={dataTable[1]} field={show} />
-        <Column header={"Number"} field={"count"} />
+        <Column header={"Count"} field={"count"} />
       </TableWithBrowserPagination>
     );
   } else {

@@ -14,7 +14,7 @@ export const ColumnCharts = ({ datalinks, show, link }) => {
     borderColor: "#fffff",
     datasets: [
       {
-        label: "Links Totales",
+        label: show==="word"?"Palabras Totales": "Links Totales",
         backgroundColor: ["#56d798"],
         borderColor: "black",
         borderWidth: "2",
@@ -38,16 +38,14 @@ export const ColumnCharts = ({ datalinks, show, link }) => {
 
   useEffect(() => {
     if (show === "link") {
-      const newData = datalinks.dataWeb.listAnalyzedPages.filter(
+      const newData = datalinks.dataWeb.listAnalyzedPages?.filter(
         (element) => element.classification === category
       );
       setTableData(newData);
     } else {
-      const linkData = datalinks.dataWeb.listAnalyzedPages.find(
-        (element) => element.link === link
-      );
+      const linkData = datalinks.dataWeb.infoLink
       if (linkData) {
-        const newData = linkData.details.filter(
+        const newData = linkData.details?.filter(
           (element) => element.category === category && element.count > 0
         );
 
