@@ -47,8 +47,6 @@ the second level of multiprocessing was implemented in the web scraping section 
 
 The libraries used for this section were "threading" which allows creating new threads and provides functions to work with the useful life of the thread, the "queue" library was also used, which is very interesting and important for the return of results of the functions executed by threads, this library was implemented due to the need to return some data worked within functions that were executed through new threads, since the functions executed with threads do not allow the return of data, for which this library was very useful for this project, this library works like a stack and is the safest way to share data between multiple threads, a new queue(instance of this library) is created and sent as a parameter to the function that will be executed with the new thread, then the results that they want to be returned must be inserted in the queue, then we can extract the data stored in the queue at the time it is required.
 
-### Naive Bayes
-
 ### Getting Started
 
 1. cd into the Backend/src proyect directory
