@@ -5,8 +5,11 @@ import { FormComponent } from "../components/FormComponent";
 import "../css/Link.css";
 import  dataWeb from "../helpers/Datos_para_web.json";
 
+
+
 export const LinkClassifierPage = () => {
 
+  // const [dataWeb, setdataWeb] = useState({})
 
   const [unratedCount, setunratedCount] = useState(0)
   const [newsCount, setnewsCount] = useState(0)
@@ -45,6 +48,16 @@ export const LinkClassifierPage = () => {
 
   const datalinks = {labels,links,dataWeb}
 
+
+  // const loadDataWeb = async () => {
+  //   const response = await fetch("http://192.168.1.117:8080/list-links");
+  //   const data = await response.json();
+  //   setdataWeb(data)
+  // };
+
+  // useEffect(() => {
+  //   loadDataWeb();
+  // }, []);
 
   return (
     <div className="flex-container-2">

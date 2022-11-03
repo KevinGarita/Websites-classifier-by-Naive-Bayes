@@ -48,7 +48,7 @@ export const ColumnCharts = ({ datalinks, show, link }) => {
       );
       if (linkData) {
         const newData = linkData.details.filter(
-          (element) => element.category === category
+          (element) => element.category === category && element.count > 0
         );
 
         setTableData(newData);
