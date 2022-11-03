@@ -28,7 +28,6 @@ def process(link):
     }
     return pageAnalysis
 
-
 def listLinks(links):
     for link in links:
         linkProcess = process(link)
