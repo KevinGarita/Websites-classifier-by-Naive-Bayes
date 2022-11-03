@@ -12498,8 +12498,8 @@
     }
   ],
   "listConnectionFail": [
-    {"link" :"http://apartments.com/"},
-    {"link" :"http://assuranthealth.com/"},
-    {"link" :"http://beta.gogii.com/"}
+    "http://apartments.com/",
+   "http://assuranthealth.com/",
+    "http://beta.gogii.com/"
   ]
 }
