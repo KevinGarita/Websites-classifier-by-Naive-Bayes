@@ -1,4 +1,4 @@
-# Naive Bayes Link Classifier
+# Websites Classifier by Naive Bayes
 This project consists of using web scrapping and multiprocessing to classify web pages. The classification method is the naive Bayes method, in addition, react is used to display the data obtained.
 
 ## App Features - Frontend
