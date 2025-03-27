@@ -52,5 +52,5 @@ The libraries used for this section were "threading" which allows creating new t
 1. cd into the Backend/src proyect directory
 2. python app.py
 
-## Authores
-Kevin Garita Monge y Cristopher Soto Calderón
+## Authors
+Kevin Garita Monge & Cristopher Soto Calderón
